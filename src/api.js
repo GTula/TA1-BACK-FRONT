@@ -11,6 +11,7 @@ import * as Handlers from "./eventHandlers.js";
 // Event Listeners
 import { addEventListeners } from "./eventListeners.js";
 
+//fetch para obtener las tareas del back haciendo un llamado a la funcion para que agregue las tareas al front
 export function fetchTasksGet() {
     fetch('http://localhost:3000/api/tasks', {
         method: 'GET',
@@ -44,7 +45,7 @@ function displayTasks(tasks) {
       
 
 
-
+//fetch para pasar las tareas del front al back
 export function fetchTasksPost(task) {
   fetch('http://localhost:3000/api/tasks', {
     method: 'POST',
@@ -62,7 +63,7 @@ export function fetchTasksPost(task) {
     });
 };
 
-
+//fetch para actualizar una tarea que se cambia
 export function updateTaskApi(taskId, updatedTaskData) {
   fetch(`http://localhost:3000/api/tasks/${taskId}`, {
     method: 'PUT',
@@ -78,7 +79,7 @@ export function updateTaskApi(taskId, updatedTaskData) {
   .catch(error => console.error('Error al actualizar la tarea:', error));
 };
 
-
+//fetch para eliminar del back una tarea que el usuario elimina
 export function deleteTaskApi(taskId) {
   fetch(`http://localhost:3000/api/tasks/${taskId}`, {
     method: 'DELETE',
